@@ -173,6 +173,7 @@ typedef Vector4s32 Vector4i;
 typedef union Vector2f32 {
 	float32 data[2];
 	struct {float32  x, y;};
+	struct {float32 width, height;};
 } Vector2f32;
 typedef union Vector3f32 {
 	float32 data[3];
@@ -190,11 +191,15 @@ typedef union Vector4f32 {
 	struct {float32  left, bottom, right, top;};
 	struct {Vector3f32  xyz;};
 	struct {float32  _x; Vector3f32 yzw;};
+	struct {float32 __x, __y, width, height;};
+	struct {Vector2f32 position, size;};
+	struct {Vector2f32 min, max;};
 } Vector4f32;
 
 typedef union Vector2f64 {
 	float64 data[2];
 	struct {float64  x, y;};
+	struct {float64 width, height;};
 } Vector2f64;
 typedef union Vector3f64 {
 	float64 data[3];
@@ -212,11 +217,15 @@ typedef union Vector4f64 {
 	struct {float64  left, bottom, right, top;};
 	struct {Vector3f64  xyz;};
 	struct {float64  _x; Vector3f64 yzw;};
+	struct {float64 __x, __y, width, height;};
+	struct {Vector2f64 position, size;};
+	struct {Vector2f64 min, max;};
 } Vector4f64;
 
 typedef union Vector2s32 {
 	s32 data[2];
 	struct {s32  x, y;};
+	struct {s32 width, height;};
 } Vector2s32;
 typedef union Vector3s32 {
 	s32 data[3];
@@ -234,11 +243,15 @@ typedef union Vector4s32 {
 	struct {s32  left, bottom, right, top;};
 	struct {Vector3s32  xyz;};
 	struct {s32  _x; Vector3s32 yzw;};
+	struct {s32 __x, __y, width, height;};
+	struct {Vector2s32 position, size;};
+	struct {Vector2s32 min, max;};
 } Vector4s32;
 
 typedef union Vector2s64 {
 	s64 data[2];
 	struct {s64  x, y;};
+	struct {s64 width, height;};
 } Vector2s64;
 typedef union Vector3s64 {
 	s64 data[3];
@@ -256,6 +269,9 @@ typedef union Vector4s64 {
 	struct {s64  left, bottom, right, top;};
 	struct {Vector3s64  xyz;};
 	struct {s64  _x; Vector3s64 yzw;};
+	struct {s64 __x, __y, width, height;};
+	struct {Vector2s64 position, size;};
+	struct {Vector2s64 min, max;};
 } Vector4s64;
 
 inline Vector2f32 v2f32(float32 x, float32 y)                       { return (Vector2f32){x, y}; }
