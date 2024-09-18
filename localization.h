@@ -129,16 +129,16 @@ string get_localized_text(Localized_Text text, string local) {
 
 #if LOCALIZATION_USE_PLACEHOLDER_STRING
 
-    if(text >= text_table->count) {
+    if(text == 0 || text > text_table->count) {
         return tprintf("!!! INVALID TEXT ID %i !!!", text);
 
     }
     
 #else
 
-    assert(text < text_table->count);
+    assert(text != 0 && text <= text_table->count);
 
 #endif
     
-    return text_table->values[text];
+    return text_table->values[text-1];
 }
